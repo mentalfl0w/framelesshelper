@@ -331,12 +331,6 @@ public Q_SLOTS:
         nswindow.showsToolbarButton = NO;
         nswindow.movableByWindowBackground = NO;
         nswindow.movable = NO;
-        // For some unknown reason, we don't need the following hack in Qt versions below or equal to 6.2.4.
-#if (QT_VERSION > QT_VERSION_CHECK(6, 2, 4))
-        [nswindow standardWindowButton:NSWindowCloseButton].hidden = (visible ? NO : YES);
-        [nswindow standardWindowButton:NSWindowMiniaturizeButton].hidden = (visible ? NO : YES);
-        [nswindow standardWindowButton:NSWindowZoomButton].hidden = (visible ? NO : YES);
-#endif
     }
 
     void setBlurBehindWindowEnabled(const bool enable)
